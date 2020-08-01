@@ -28,3 +28,6 @@ class HexGrid:
             (x  , y+1),
             (x-1, y  )
         )
+
+    def isOccupied(self):
+        return self.element != None

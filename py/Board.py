@@ -49,4 +49,4 @@ class Board:
 
     @staticmethod
     def isValid(x, y):
-        return max(x-5, 0) <= y <= min(x+5, 10)
+        return 0 <= x <= 10 and max(x-5, 0) <= y <= min(x+5, 10)

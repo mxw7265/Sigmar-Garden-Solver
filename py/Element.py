@@ -1,5 +1,10 @@
 class Element:
-    """docstring"""
+    """
+    Class to represent an element (marbles) for a Sigmar's Garden game.
+    This class is used as an abstract class. Any subclasses will handle
+    how elements interact with each other.
+    """
+
     def __init__(self, name):
         self.name = name
 
@@ -12,6 +17,10 @@ class Element:
     __str__ = __repr__
 
 class Fire(Element):
+    """
+    Class to represent Fire element
+    """
+
     def __init__(self):
         super().__init__("Fire")
 
@@ -21,6 +30,10 @@ class Fire(Element):
     __radd__ = __add__
 
 class Earth(Element):
+    """
+    Class to represent Earth element
+    """
+
     def __init__(self):
         super().__init__("Earth")
 
@@ -30,6 +43,10 @@ class Earth(Element):
     __radd__ = __add__
 
 class Water(Element):
+    """
+    Class to represent Water element
+    """
+
     def __init__(self):
         super().__init__("Water")
 
@@ -39,6 +56,10 @@ class Water(Element):
     __radd__ = __add__
 
 class Air(Element):
+    """
+    Class to represent Air element
+    """
+
     def __init__(self):
         super().__init__("Air")
 
@@ -48,6 +69,10 @@ class Air(Element):
     __radd__ = __add__
 
 class Salt(Element):
+    """
+    Class to represent Salt element
+    """
+
     def __init__(self):
         super().__init__("Salt")
 
@@ -57,6 +82,10 @@ class Salt(Element):
     __radd__ = __add__
 
 class Vitae(Element):
+    """
+    Class to represent Vitae element
+    """
+
     def __init__(self):
         super().__init__("Vitae")
 
@@ -66,6 +95,10 @@ class Vitae(Element):
     __radd__ = __add__
 
 class Mors(Element):
+    """
+    Class to represent Mors element
+    """
+
     def __init__(self):
         super().__init__("Mors")
 
@@ -75,6 +108,13 @@ class Mors(Element):
     __radd__ = __add__
 
 class Metal(Element):
+    """
+    Abstract subclass to represent any metal element except Gold and Quicksilver.
+
+    Created to abide DRY principle, because those metal elements contain
+    same way to interact.
+    """
+
     def __init__(self, name):
         super().__init__(name)
 
@@ -84,6 +124,11 @@ class Metal(Element):
     __radd__ = __add__
 
 class Quicksilver(Element):
+    """
+    Class to represent Quicksilver element.
+    (Also known as Mercury, but "quicksilver" was used in the Opus Magnum.)
+    """
+
     def __init__(self):
         super().__init__("Quicksilver")
 
@@ -93,30 +138,58 @@ class Quicksilver(Element):
     __radd__ = __add__
 
 class Lead(Metal):
+    """
+    Class to represent Lead element
+    """
+
     def __init__(self):
         super().__init__("Lead")
 
 class Tin(Metal):
+    """
+    Class to represent Tin element
+    """
+
     def __init__(self):
         super().__init__("Tin")
 
 class Iron(Metal):
+    """
+    Class to represent Iron element
+    """
+
     def __init__(self):
         super().__init__("Iron")
 
 class Copper(Metal):
+    """
+    Class to represent Copper element
+    """
+
     def __init__(self):
         super().__init__("Copper")
 
 class Silver(Metal):
+    """
+    Class to represent Silver element
+    """
+
     def __init__(self):
         super().__init__("Silver")
 
 class Gold(Element):
+    """
+    Class to represent Gold element
+
+    NOTE: This element does not interact with each other; it will cancel itself.
+          Model classes will need to take that into account.
+    """
+
     def __init__(self):
         super().__init__("Gold")
 
     def __add__(self, other):
+        # Does not interact with any elements.
         return False
 
     __radd__ = __add__
